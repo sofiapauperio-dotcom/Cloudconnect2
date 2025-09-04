@@ -1,0 +1,22 @@
+{
+  "name": "cloudconnect",
+  "version": "1.0.0",
+  "description": "CloudConnect - Sistema de Gestão de Clientes com Airtable",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "keywords": [
+    "airtable",
+    "crud",
+    "cliente",
+    "api"
+  ],
+  "author": "CloudConnect Team",
+  "license": "MIT",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.21.2"
+  }
+}

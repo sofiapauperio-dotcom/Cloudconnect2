@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CloudConnect - Gestão de Clientes</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>CloudConnect</h1>
+            <p>Sistema de Gestão de Clientes</p>
+        </header>
+
+        <main>
+            <!-- Formulário para criar cliente -->
+            <section class="form-section">
+                <h2>Adicionar Cliente</h2>
+                <form id="clienteForm">
+                    <div class="input-group">
+                        <label for="nome">Nome:</label>
+                        <input type="text" id="nome" name="nome" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="telefone">Telefone:</label>
+                        <input type="tel" id="telefone" name="telefone" required>
+                    </div>
+                    <button type="submit" id="submitBtn">
+                        <span id="submitText">Adicionar Cliente</span>
+                        <div id="loadingSpinner" class="spinner hidden"></div>
+                    </button>
+                </form>
+            </section>
+
+            <!-- Lista de clientes -->
+            <section class="clients-section">
+                <div class="section-header">
+                    <h2>Clientes Cadastrados</h2>
+                    <button id="refreshBtn" class="refresh-btn">Atualizar</button>
+                </div>
+                
+                <!-- Estados da UI -->
+                <div id="loadingState" class="loading-state hidden">
+                    <div class="spinner"></div>
+                    <p>Carregando clientes...</p>
+                </div>
+
+                <div id="errorState" class="error-state hidden">
+                    <p>Erro ao carregar clientes. Tente novamente.</p>
+                    <button id="retryBtn">Tentar Novamente</button>
+                </div>
+
+                <div id="emptyState" class="empty-state hidden">
+                    <p>Nenhum cliente encontrado. Adicione o primeiro cliente!</p>
+                </div>
+
+                <div id="clientsTable" class="clients-table hidden">
+                    <div class="table-responsive">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Nome</th>
+                                    <th>Email</th>
+                                    <th>Telefone</th>
+                                    <th>Ações</th>
+                                </tr>
+                            </thead>
+                            <tbody id="clientsTableBody">
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2025 CloudConnect - Integração com Airtable</p>
+        </footer>
+    </div>
+
+    <!-- Modal de confirmação -->
+    <div id="deleteModal" class="modal hidden">
+        <div class="modal-content">
+            <h3>Confirmar Exclusão</h3>
+            <p>Tem certeza que deseja excluir este cliente?</p>
+            <div class="modal-actions">
+                <button id="confirmDelete" class="btn-danger">Excluir</button>
+                <button id="cancelDelete" class="btn-secondary">Cancelar</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
